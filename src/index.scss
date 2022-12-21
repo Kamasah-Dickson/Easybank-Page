@@ -1,0 +1,245 @@
+@use "sass:math";
+@use "./colors";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&family=Public+Sans:wght@300;400;700&display=swap");
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Public Sans", sans-serif;
+}
+
+body {
+	font-size: rem(18);
+	background-color: var(--Light-Grayish-Blue);
+}
+
+@function rem($size) {
+	@if math.is-unitless($size) {
+		@return math.div($size, 16) + rem;
+	}
+}
+
+$breakpoints-up: (
+	medium: rem(800),
+	large: rem(1024),
+	larger: rem(1100),
+);
+
+@mixin breakpoints-min($size) {
+	@media (min-width: map-get($breakpoints-up,$size)) {
+		@content;
+	}
+}
+
+header {
+	z-index: 99;
+	position: fixed;
+	width: 100%;
+	background-color: var(--Light-Grayish-Blue);
+
+	.container {
+		height: rem(100);
+		width: min(100% - rem(60), rem(1550));
+		margin-inline: auto;
+		nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: rem(36);
+			height: 100%;
+			.group {
+				display: flex;
+				align-content: center;
+				justify-content: center;
+			}
+			.logo {
+				width: rem(150);
+				display: flex;
+				align-content: center;
+				justify-content: flex-start;
+			}
+			.menu {
+				margin-right: rem(30);
+				cursor: pointer;
+				width: rem(40);
+			}
+			.nav-links {
+				display: none;
+			}
+			.theme-toggle {
+				width: rem(30);
+				flex: 0;
+			}
+			.cta {
+				display: none;
+			}
+		}
+	}
+	@include breakpoints-min(large) {
+		.container {
+			width: min(100% - rem(190), rem(1550));
+
+			nav {
+				.cta {
+					display: flex;
+					flex-shrink: 0;
+					background: linear-gradient(
+						to left,
+						var(--Lime-Green),
+						var(--Bright-Cyan)
+					);
+					border: none;
+					padding: rem(13) rem(23);
+					font-size: rem(15);
+					border-radius: rem(20);
+					font-weight: 400;
+					color: white;
+					cursor: pointer;
+					&:hover {
+						opacity: 0.7;
+						transition: 0.3s ease;
+					}
+				}
+			}
+		}
+	}
+	@include breakpoints-min(large) {
+		.container {
+			nav {
+				.menu {
+					display: none;
+				}
+
+				.nav-links {
+					display: flex;
+					flex: 1.7;
+					align-items: center;
+					justify-content: center;
+					gap: rem(32);
+					li {
+						list-style: none;
+						a {
+							text-decoration: none;
+							font-weight: 400;
+							color: var(--Grayish-Blue);
+							font-size: clamp(rem(18), rem(20) + 2vw, rem(22));
+							&:hover {
+								color: var(--Dark-Blue);
+								transition: 0.3s ease;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+main {
+	.container {
+		.right-content {
+			background-image: url("/images/bg-intro-mobile.svg");
+			background-position: center center;
+			width: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			img {
+				transform: translateY(-60px);
+				width: 100%;
+				height: auto;
+			}
+		}
+		.left-content {
+			max-width: rem(600);
+			margin-inline: auto;
+			text-align: center;
+			h1 {
+				color: var(--Dark-Blue);
+				font-size: clamp(rem(18), rem(30) + 2vw, rem(50));
+				margin-bottom: rem(20);
+				font-weight: 700;
+				max-width: rem(550);
+				margin-inline: auto;
+			}
+			p {
+				color: var(--Grayish-Blue);
+				line-height: 1.3;
+				font-size: clamp(rem(16), rem(8) + 2vw, rem(20));
+				margin-bottom: rem(24);
+				font-weight: 300;
+			}
+			.cta {
+				background: linear-gradient(
+					to left,
+					var(--Lime-Green),
+					var(--Bright-Cyan)
+				);
+				border: none;
+				padding: rem(13) rem(29);
+				font-size: rem(15);
+				border-radius: rem(25);
+				font-weight: 400;
+				color: white;
+				cursor: pointer;
+				&:hover {
+					opacity: 0.7;
+					transition: 0.3s ease;
+				}
+			}
+		}
+	}
+	@include breakpoints-min(larger) {
+		.container {
+			width: min(100%, rem(1900));
+			margin-inline: auto;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			justify-content: space-between;
+
+			.left-content {
+				order: 1;
+				text-align: left;
+				max-width: rem(530);
+				margin-left: rem(165);
+				h1 {
+					font-size: rem(55);
+					font-weight: 400;
+				}
+				h1,
+				p {
+					margin-inline: unset;
+				}
+				.cta {
+					font-size: rem(22);
+					padding-inline: rem(28);
+				}
+			}
+			.right-content {
+				order: 2;
+				position: relative;
+				background-image: none;
+				overflow: hidden;
+				&:before {
+					content: "";
+					position: absolute;
+					right: 140px;
+					top: -120px;
+					width: 100%;
+					height: 100%;
+					background-image: url("/images/bg-intro-desktop.svg");
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: left center;
+					scale: 1.1;
+					transform: translateX(rem(100));
+				}
+				img {
+					width: 100%;
+					transform: translate(rem(140), rem(-55));
+				}
+			}
+		}
+	}
+}
