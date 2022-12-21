@@ -11,6 +11,7 @@
 body {
 	font-size: rem(18);
 	background-color: var(--Light-Grayish-Blue);
+	transition: background 0.1s ease;
 }
 
 @function rem($size) {
@@ -37,6 +38,7 @@ header {
 	position: fixed;
 	width: 100%;
 	background-color: var(--Light-Grayish-Blue);
+	transition: background 0.1s ease;
 
 	.container {
 		height: rem(100);
