@@ -10,7 +10,7 @@
 
 body {
 	font-size: rem(18);
-	background-color: var(--Light-Grayish-Blue);
+	background-color: var(--White);
 	transition: background 0.1s ease;
 }
 
@@ -36,12 +36,15 @@ $breakpoints-up: (
 header {
 	z-index: 99;
 	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
 	width: 100%;
 	background-color: var(--Light-Grayish-Blue);
 	transition: background 0.1s ease;
 
 	.container {
-		height: rem(100);
+		height: rem(90);
 		width: min(100% - rem(60), rem(1550));
 		margin-inline: auto;
 		nav {
@@ -52,7 +55,7 @@ header {
 			height: 100%;
 			.group {
 				display: flex;
-				align-content: center;
+				align-items: center;
 				justify-content: center;
 				img {
 					cursor: pointer;
@@ -68,6 +71,7 @@ header {
 				margin-right: rem(30);
 				cursor: pointer;
 				width: rem(40);
+				height: rem(20);
 			}
 			.nav-links {
 				display: none;
@@ -131,7 +135,7 @@ header {
 							font-size: clamp(rem(18), rem(20) + 2vw, rem(22));
 							&:hover {
 								color: var(--Dark-Blue);
-								transition: 0.3s ease;
+								transition: 0.3s ease-in;
 							}
 						}
 					}
@@ -139,15 +143,12 @@ header {
 			}
 		}
 	}
-	@include breakpoints-min(large-max) {
-		.container {
-			width: min(100% - rem(190), rem(1440));
-		}
-	}
 }
 
 main {
 	.container {
+		width: min(100% - rem(60), rem(1440));
+		margin-inline: auto;
 		.right-content {
 			background-image: url("/images/bg-intro-mobile.svg");
 			background-position: center center;
@@ -163,6 +164,8 @@ main {
 		}
 		.left-content {
 			text-align: center;
+			max-width: rem(550);
+			margin-inline: auto;
 			h1 {
 				color: var(--Dark-Blue);
 				font-size: clamp(rem(18), rem(30) + 2vw, rem(50));
@@ -212,7 +215,7 @@ main {
 				order: 1;
 				text-align: left;
 				max-width: rem(530);
-				margin-left: rem(130);
+				margin-left: rem(100);
 				h1 {
 					font-size: rem(55);
 					font-weight: 400;
@@ -259,12 +262,107 @@ main {
 	@include breakpoints-min(large-max) {
 		.container {
 			margin-left: auto;
+			width: min(100%, rem(1900));
+
 			.left-content {
-				margin-left: rem(170);
+				// margin-left: rem(170);
 				h1 {
 					font-size: rem(65);
 				}
 			}
 		}
+	}
+}
+
+// ==============================
+//	ABOUT-SECTION
+//===============================
+
+.about {
+	margin-top: rem(70);
+	padding-block: rem(70);
+	background-color: var(--Light-Grayish-Blue);
+	.container {
+		width: min(100% - rem(60), rem(1440));
+		margin-inline: auto;
+		display: inherit;
+		section {
+			.title {
+				text-align: center;
+				max-width: rem(580);
+				margin-inline: auto;
+				h2 {
+					color: var(--Dark-Blue);
+					font-size: clamp(rem(18), rem(30) + 2vw, rem(50));
+					margin-bottom: rem(20);
+					font-weight: 700;
+				}
+			}
+			img {
+				margin-bottom: rem(27);
+			}
+			h3 {
+				font-size: clamp(rem(18), rem(10) + 2vw, rem(28));
+				font-weight: 400;
+				text-align: center;
+				margin-bottom: rem(20);
+				color: var(--Dark-Blue);
+			}
+			p {
+				text-align: center;
+				color: var(--Grayish-Blue);
+				line-height: 1.3;
+			}
+			.cards {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: rem(20);
+				.card {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					margin-top: rem(70);
+					max-width: rem(350);
+					margin-inline: auto;
+					@include breakpoints-min(larger) {
+						align-items: flex-start;
+						p {
+							text-align: left;
+							font-size: rem(18);
+						}
+					}
+				}
+			}
+		}
+	}
+	@include breakpoints-min(larger) {
+		.container {
+			width: min(100% - rem(190), rem(1650));
+
+			margin-inline: auto;
+			section {
+				.title {
+					text-align: left;
+					margin-inline: unset;
+					p {
+						text-align: left;
+						font-size: rem(18);
+					}
+				}
+			}
+		}
+	}
+
+	// @include breakpoints-min(large-max) {
+	// 	.container {
+	// 		width: min(100%, rem(1900));
+	// 	}
+	// }
+}
+
+@include breakpoints-min(larger) {
+	.about {
+		margin-top: rem(-220);
+		padding: rem(160) 0 rem(100) 0;
 	}
 }

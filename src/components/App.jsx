@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 import { toggleTheme } from "./contexts";
 import { useState } from "react";
 import Hero from "./Hero";
+import About from "./About";
 
 export default function App() {
 	const [theme, setTheme] = useState(
@@ -16,6 +17,7 @@ export default function App() {
 				</header>
 				<main>
 					<Hero />
+					<About />
 				</main>
 			</toggleTheme.Provider>
 		</>

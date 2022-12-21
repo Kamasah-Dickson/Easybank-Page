@@ -3,6 +3,8 @@ import darkMode from "../assets/dark_mode_FILL0_wght400_GRAD0_opsz48.svg";
 import lightMode from "../assets/light_mode_FILL0_wght400_GRAD0_opsz48.svg";
 import lightLogo from "../assets/logo.svg";
 import darkLogo from "../assets/logo copy.svg";
+import harmburger from "/images/icon-hamburger.svg";
+import lightHamburger from "/images/icon-hamburger light.svg";
 import { toggleTheme } from "./contexts";
 import { useContext } from "react";
 import { useEffect } from "react";
@@ -46,7 +48,11 @@ export default function Navigation() {
 				</ul>
 				<button className="cta">Request Invite</button>
 				<div className="group">
-					<img src="/images/icon-hamburger.svg" className="menu" alt="menu" />
+					<img
+						src={theme ? harmburger : lightHamburger}
+						className="menu"
+						alt="menu"
+					/>
 					<img
 						onClick={() => setTheme((prev) => !prev)}
 						src={theme ? darkMode : lightMode}
