@@ -6,12 +6,18 @@
 	margin: 0;
 	box-sizing: border-box;
 	font-family: "Public Sans", sans-serif;
+	transition: background 0.2s ease;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 body {
 	font-size: rem(18);
-	background-color: var(--White);
-	transition: background 0.1s ease;
+	background-color: var(--Very-Light-Gray);
+	min-height: 100vh;
+	position: relative;
 }
 
 @function rem($size) {
@@ -41,7 +47,6 @@ header {
 	z-index: 2;
 	width: 100%;
 	background-color: var(--Light-Grayish-Blue);
-	transition: background 0.1s ease;
 
 	.container {
 		height: rem(90);
@@ -352,17 +357,95 @@ main {
 			}
 		}
 	}
-
-	// @include breakpoints-min(large-max) {
-	// 	.container {
-	// 		width: min(100%, rem(1900));
-	// 	}
-	// }
 }
 
 @include breakpoints-min(larger) {
 	.about {
 		margin-top: rem(-220);
 		padding: rem(160) 0 rem(100) 0;
+	}
+}
+
+// ==============================
+//	BLOGS-SECTION
+//===============================
+
+.blogs-section {
+	// margin-top: rem(60);
+	padding-block: rem(50);
+	.container {
+		width: min(100% - rem(60), rem(1440));
+		margin-inline: auto;
+		display: inherit;
+		section {
+			h4 {
+				color: var(--Dark-Blue);
+				font-size: clamp(rem(18), rem(30) + 2vw, rem(50));
+				margin-bottom: rem(50);
+				font-weight: 700;
+				text-align: center;
+			}
+			.blogs {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: rem(50);
+				width: 100%;
+				justify-content: space-between;
+				.blog {
+					width: 100%;
+					max-width: rem(350);
+					margin-inline: auto;
+					background-color: var(--White);
+					box-shadow: 1rem 1rem 1rem -1rem var(--shadow);
+					border-radius: rem(10);
+					overflow: hidden;
+					.img {
+						height: rem(220);
+						img {
+							height: 100%;
+						}
+					}
+					.content {
+						padding: rem(35) rem(30) rem(25) rem(30);
+						span {
+							color: var(--Grayish-Blue);
+							font-size: rem(14);
+							font-weight: 300;
+						}
+						h5 {
+							color: var(--Dark-Blue);
+							margin-block: rem(15);
+							font-size: rem(25);
+							font-weight: 400;
+						}
+						p {
+							color: var(--Dark-Blue);
+							line-height: 1.4;
+							font-weight: 300;
+							font-size: rem(17);
+						}
+					}
+
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	@include breakpoints-min(larger) {
+		.container {
+			width: min(100% - rem(190), rem(1650));
+			section {
+				h4 {
+					text-align: left;
+				}
+				.blogs {
+					.blog {
+						margin-inline: unset;
+					}
+				}
+			}
+		}
 	}
 }

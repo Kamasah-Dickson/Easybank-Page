@@ -7,9 +7,12 @@
 	--Light-Grayish-Blue: hsl(220, 16%, 96%);
 	--Very-Light-Gray: hsl(0, 0%, 98%);
 	--White: hsl(0, 0%, 100%);
+	--shadow: rgba(45, 49, 77, 0.13);
 }
 .dark {
 	--Light-Grayish-Blue: #2d314d;
-	--White: #2d314dfa;
+	--Very-Light-Gray: #2d314dfa;
+	--White: #2d314da9;
 	--Dark-Blue: #fff;
+	--shadow: rgba(0, 0, 0, 0.178);
 }

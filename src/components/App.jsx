@@ -4,6 +4,7 @@ import { toggleTheme } from "./contexts";
 import { useState } from "react";
 import Hero from "./Hero";
 import About from "./About";
+import Blogs from "./Blogs";
 
 export default function App() {
 	const [theme, setTheme] = useState(
@@ -18,6 +19,7 @@ export default function App() {
 				<main>
 					<Hero />
 					<About />
+					<Blogs />
 				</main>
 			</toggleTheme.Provider>
 		</>
