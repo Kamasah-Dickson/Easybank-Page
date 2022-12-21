@@ -27,6 +27,7 @@ body {
 }
 
 $breakpoints-up: (
+	small: rem(600),
 	medium: rem(800),
 	large: rem(1024),
 	larger: rem(1100),
@@ -371,7 +372,6 @@ main {
 //===============================
 
 .blogs-section {
-	// margin-top: rem(60);
 	padding-block: rem(50);
 	.container {
 		width: min(100% - rem(60), rem(1440));
@@ -387,8 +387,8 @@ main {
 			}
 			.blogs {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: rem(50);
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: rem(30);
 				width: 100%;
 				justify-content: space-between;
 				.blog {
@@ -399,10 +399,20 @@ main {
 					box-shadow: 1rem 1rem 1rem -1rem var(--shadow);
 					border-radius: rem(10);
 					overflow: hidden;
+					&:hover {
+						.content {
+							h5 {
+								color: var(--Lime-Green);
+								transition: 0.4s ease-in;
+								cursor: pointer;
+							}
+						}
+					}
 					.img {
-						height: rem(220);
+						height: rem(190);
 						img {
 							height: 100%;
+							object-fit: cover;
 						}
 					}
 					.content {
@@ -415,14 +425,19 @@ main {
 						h5 {
 							color: var(--Dark-Blue);
 							margin-block: rem(15);
-							font-size: rem(25);
+							font-size: rem(20);
 							font-weight: 400;
+							&:hover {
+								color: var(--Lime-Green);
+								transition: 0.3s ease;
+								cursor: pointer;
+							}
 						}
 						p {
 							color: var(--Dark-Blue);
 							line-height: 1.4;
 							font-weight: 300;
-							font-size: rem(17);
+							font-size: rem(15);
 						}
 					}
 
@@ -446,6 +461,139 @@ main {
 					}
 				}
 			}
+		}
+	}
+}
+
+// ==============================
+//	FOOTER-SECTION
+//===============================
+
+footer {
+	background-color: var(--footer);
+	padding-block: rem(15);
+	margin-top: rem(40);
+	.container {
+		width: min(100% - rem(60), rem(1440));
+		padding-block: rem(40);
+		display: inherit;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.left {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: rem(50);
+
+			.socials {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-between;
+				gap: rem(25);
+				.social {
+					display: flex;
+					align-items: center;
+					gap: rem(10);
+					svg:hover {
+						path {
+							fill: var(--Lime-Green);
+							transition: 0.3s ease;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+			.links {
+				display: flex;
+				align-items: center;
+				gap: rem(70);
+				flex-direction: column;
+				ul {
+					display: flex;
+					align-items: flex-start;
+					justify-content: space-around;
+					align-items: center;
+					li {
+						list-style: none;
+						margin-block: rem(10);
+						a {
+							color: var(--Dark-Blue);
+							text-decoration: none;
+							&:hover {
+								color: var(--Lime-Green);
+								transition: 0.3s ease-in;
+							}
+						}
+					}
+				}
+
+				.first,
+				.second {
+					flex-direction: column;
+				}
+			}
+		}
+
+		@include breakpoints-min(large) {
+			.left {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+		.right {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: rem(20);
+			justify-content: space-between;
+			gap: rem(25);
+			.cta {
+				background: linear-gradient(
+					to left,
+					var(--Lime-Green),
+					var(--Bright-Cyan)
+				);
+				border: none;
+				padding: rem(13) rem(29);
+				font-size: rem(15);
+				border-radius: rem(25);
+				font-weight: 400;
+				color: white;
+				cursor: pointer;
+				&:hover {
+					opacity: 0.7;
+					transition: 0.3s ease;
+				}
+			}
+			p {
+				color: var(--Grayish-Blue);
+			}
+		}
+	}
+	@include breakpoints-min(small) {
+		.container {
+			display: flex;
+
+			.left {
+				.socials {
+					align-items: flex-start;
+				}
+				.links {
+					flex-direction: row;
+					ul {
+						align-items: unset;
+					}
+				}
+			}
+			.right {
+				align-items: flex-end;
+				margin-top: 0;
+			}
+		}
+	}
+	@include breakpoints-min(larger) {
+		.container {
+			width: min(100% - rem(190), rem(1650));
 		}
 	}
 }

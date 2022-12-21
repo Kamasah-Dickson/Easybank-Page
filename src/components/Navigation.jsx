@@ -23,11 +23,13 @@ export default function Navigation() {
 		<div className="container">
 			<nav>
 				<div className="logo">
-					<img
-						src={theme ? lightLogo : darkLogo}
-						className="logo"
-						alt="easy bank"
-					/>
+					<a href="/">
+						<img
+							src={theme ? lightLogo : darkLogo}
+							className="logo"
+							alt="easy bank"
+						/>
+					</a>
 				</div>
 				<ul className="nav-links">
 					<li>

@@ -10,7 +10,7 @@ export default function Blogs() {
 					<div className="blogs">
 						{blogsData.map((blogs) => {
 							return (
-								<div className="blog">
+								<div key={blogs.title} className="blog">
 									<div className="img">
 										<img src={blogs.img} alt={blogs.img} />
 									</div>
