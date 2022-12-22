@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 export default function App() {
 	const [theme, setTheme] = useState(
-		JSON.parse(localStorage.getItem("theme")) && true
+		JSON.parse(localStorage.getItem("theme")) && false
 	);
 	return (
 		<>

@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo copy.svg";
+import me from "/images/EgLF6Jmi_4x.jpg";
 export default function Footer() {
 	return (
 		<footer>
@@ -24,7 +25,7 @@ export default function Footer() {
 									d="M10.333 0c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-5.522-4.477-10-10-10zm3.701 14.077c-1.752.12-5.653.12-7.402 0C4.735 13.947 4.514 13.018 4.5 10c.014-3.024.237-3.947 2.132-4.077 1.749-.12 5.651-.12 7.402 0 1.898.13 2.118 1.059 2.133 4.077-.015 3.024-.238 3.947-2.133 4.077zM8.667 8.048l4.097 1.949-4.097 1.955V8.048z"
 								/>
 							</svg>
-							<a href="#">
+							<a href="https://twitter.com/Kamas_DEV">
 								<svg xmlns="http://www.w3.org/2000/svg" width="21" height="18">
 									<path
 										fill="#FFF"
@@ -58,6 +59,9 @@ export default function Footer() {
 								<a href=" #blog">Blog</a>
 							</li>
 						</ul>
+						<a href="https://github.com/Kamasah-Dickson">
+							<img className="me" src={me} alt="Github" />
+						</a>
 						<ul className="second">
 							<li>
 								<a href="#careers">Careers</a>
@@ -72,8 +76,24 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="right">
-					<button className="cta">Request Invite</button>
+					<a href="/">
+						<button className="cta">Request Invite</button>
+					</a>
 					<p>© Easybank. All Rights Reserved</p>
+					<p className="attribution">
+						Challenge by
+						<a
+							href="https://www.frontendmentor.io?ref=Easybank landing page"
+							target="_blank"
+						>
+							Frontend Mentor
+						</a>
+						. Coded by
+						<a href="https://www.frontendmentor.io/profile/Kamasah-Dickson">
+							Kamasah Dickson
+						</a>
+						.
+					</p>
 				</div>
 			</div>
 		</footer>

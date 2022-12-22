@@ -13,7 +13,9 @@ export default function Hero() {
 					one-stop-shop for spending, saving, budgeting, investing, and much
 					more.
 				</p>
-				<button className="cta">Request Invite</button>
+				<a href="/">
+					<button className="cta">Request Invite</button>
+				</a>
 			</div>
 		</div>
 	);
