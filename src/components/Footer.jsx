@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo copy.svg";
-import me from "/images/EgLF6Jmi_4x.jpg";
+import me from "../../public/images/EgLF6Jmi_4x.jpg";
 export default function Footer() {
 	return (
 		<footer>

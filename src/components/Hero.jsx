@@ -1,10 +1,10 @@
 import React from "react";
-
+import mockup from "../../public/images/image-mockups.png";
 export default function Hero() {
 	return (
 		<div className="container" id="home">
 			<div className="right-content">
-				<img src="/images/image-mockups.png" alt="easybank" />
+				<img src={mockup} alt="easybank" />
 			</div>
 			<div className="left-content">
 				<h1>Next generation digital banking</h1>
